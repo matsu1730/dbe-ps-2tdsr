@@ -63,8 +63,8 @@
 							value="#{userBean.user.password}" 
 							required="true"
 							requiredMessage="A senha é obrigatória"
-							feedback="true"
-						>
+							feedback="true">
+							<f:validateLength minimum="8" maximum="50"></f:validateLength>
 							<f:ajax event="blur" render="msg"  />
 						</p:password>
 					</div>
