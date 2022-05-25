@@ -21,7 +21,6 @@ public class SetupBean {
 
 	private Setup setup = new Setup();
 	private List<Setup> list;
-	
 	private UploadedFile image;
 	
 	public SetupBean() {
