@@ -14,6 +14,7 @@ import org.primefaces.model.file.UploadedFile;
 
 import br.com.fiap.dao.SetupDao;
 import br.com.fiap.model.Setup;
+import br.com.fiap.model.User;
 
 @Named
 @RequestScoped
@@ -36,7 +37,15 @@ public class SetupBean {
 		out.close();
 		
 		setup.setImagePath("\\images\\" + image.getFileName());
+		
+		User user = (User) FacesContext
+				.getCurrentInstance()
+				.getExternalContext()
+				.getSessionMap()
+				.get("user");
+		
 		new SetupDao().create(setup);
+		user.addSetup(setup);
 		
 		mostrarMensagem();
 		

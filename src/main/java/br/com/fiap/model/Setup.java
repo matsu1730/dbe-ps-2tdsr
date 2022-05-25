@@ -2,6 +2,7 @@ package br.com.fiap.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +13,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Setup {
 
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name="CD_SETUP")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name = "Meu Setup";
 	private String description = "descrição do setup";
@@ -20,7 +23,7 @@ public class Setup {
 	private String imagePath;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="CD_USER")
 	private User user;
 
 	public Long getId() {
