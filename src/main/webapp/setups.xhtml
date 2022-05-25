@@ -33,8 +33,8 @@
 								<h:outputText value="#{setup.price}" styleClass="product-price">
 									<f:convertNumber currencySymbol="$" type="currency" />
 								</h:outputText>
-								<p:commandButton type="button" value="Add To Cart"
-									icon="pi pi-shopping-cart" />
+								<p:commandButton type="button" value="Details"
+									icon="pi pi-search" />
 							</div>
 						</div>
 					</p:dataViewGridItem>
@@ -45,16 +45,18 @@
 							<div class="product-list-detail">
 								<div class="product-name">#{setup.name}</div>
 								<div class="product-description">#{setup.description}</div>
-								<p:rating readonly="true" value="5" />
-								<i class="pi pi-tag product-category-icon" /><span
-									class="product-category">CATEGORIA</span>
+								<div class="align-components">
+									<p:commandButton icon="pi pi-times" styleClass="rounded-button ui-button-danger ui-button-outlined" action="#{setupBean.remove(setup)}" />
+									<p:rating readonly="true" value="5" />								
+								</div>
+
 							</div>
 							<div class="product-list-action">
 								<h:outputText value="#{setup.price}" styleClass="product-price">
 									<f:convertNumber currencySymbol="$" type="currency" />
 								</h:outputText>
-								<p:commandButton type="button" value="Add To Cart"
-									icon="pi pi-shopping-cart" />
+								<p:commandButton type="button" value="Details"
+									icon="pi pi-search" />
 							</div>
 						</div>
 					</p:dataViewListItem>
