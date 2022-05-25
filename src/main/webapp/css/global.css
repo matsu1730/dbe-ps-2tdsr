@@ -103,6 +103,15 @@ body {
 	font-weight: 600;
 }
 
+.align-components {
+	display: flex;
+	flex-direction: row;
+}
+
+button.ui-button {
+	margin-right: .5rem;
+}
+
 @media screen and (max-width: 576px) {
 	.product .product-list-item {
 		-ms-flex-direction: column;
