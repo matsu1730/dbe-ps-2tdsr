@@ -1,11 +1,16 @@
 package br.com.fiap.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -18,6 +23,18 @@ public class User {
 	private String password;
 	private LocalDate birthday;
 
+	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Setup> setups;
+	
+	public User() {
+		this.setups = new ArrayList<Setup>();
+	}
+	
+	public void addSetup(Setup setup) {
+		setup.setUser(this);
+		this.setups.add(setup);
+	}
+	
 	public Long getId() {
 		return id;
 	}
