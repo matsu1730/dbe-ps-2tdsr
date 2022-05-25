@@ -16,59 +16,72 @@ import br.com.fiap.model.User;
 public class UserBean {
 
 	private User user = new User();
-	
+
 	@Inject
 	private UserDao dao;
-	
+
 	public String save() {
 		dao.create(getUser());
-		
+
 		mostrarMensagem("Usuário cadastrado com sucesso");
-		
+
 		return "login?faces-redirect=true";
 	}
 
 	private void mostrarMensagem(String msg) {
 		FacesContext
-			.getCurrentInstance()
-			.getExternalContext()
-			.getFlash()
-			.setKeepMessages(true);
-		
+		.getCurrentInstance()
+		.getExternalContext()
+		.getFlash()
+		.setKeepMessages(true);
+
 		FacesContext
-			.getCurrentInstance()
-			.addMessage(null, new FacesMessage(msg));
+		.getCurrentInstance()
+		.addMessage(null, new FacesMessage(msg));
 	}
-	
+
+
 	public List<User> list(){
 		return dao.listAll();
 	}
-	
-	public String login() {
-		
+
+	public String login()  {
 		if (dao.exist(user)) {
 			FacesContext
-				.getCurrentInstance()
-				.getExternalContext()
-				.getSessionMap()
-				.put("user", user);
-				
-			return "setups";
-		}
-		
-		mostrarMensagem("Login inválido");
-		return "login?faces-redirect=true";
-		
-	}
-	
-	public String logout() {
-		FacesContext
 			.getCurrentInstance()
 			.getExternalContext()
 			.getSessionMap()
-			.remove("user");
-		
+			.put("user", user);
+
+			return "setups";
+		}
+
+
+		mostrarMensagem("Login inválido");
 		return "login?faces-redirect=true";
+
+	}
+
+	public String logout() {
+		FacesContext
+		.getCurrentInstance()
+		.getExternalContext()
+		.getSessionMap()
+		.remove("user");
+
+		return "login?faces-redirect=true";
+	}
+
+	public User loggedUser() {
+		User user = (User) FacesContext
+				.getCurrentInstance()
+				.getExternalContext()
+				.getSessionMap()
+				.get("user");
+		
+		user = dao.findUser(user);
+		
+		return user;
 	}
 
 	public User getUser() {
@@ -78,7 +91,7 @@ public class UserBean {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
+
 
 }

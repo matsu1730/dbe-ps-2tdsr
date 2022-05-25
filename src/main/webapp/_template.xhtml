@@ -21,7 +21,7 @@
 	            </p:toolbarGroup>
 	
 	            <p:toolbarGroup align="right">
-	                <p:menuButton value="#{user.email}">
+	                <p:menuButton value="#{user.id}">
 	                    <p:menuitem value="Profile" action="profile.xhtml" icon="pi pi-user"/>
 	                    <p:menuitem value="Logout" action="#{userBean.logout()}" icon="pi pi-sign-out"/>
 	                </p:menuButton>
@@ -40,7 +40,7 @@
 				<p:menuitem value="Setup" outcome="pretty:new-setup" icon="pi pi-fw pi-desktop">
 					<f:param name="i" value="1" />
 				</p:menuitem>
-				<p:menuitem value="Profile" icon="pi pi-fw pi-user">
+				<p:menuitem value="Profile" action="profile.xhtml" icon="pi pi-fw pi-user">
 					<f:param name="i" value="2" />
 				</p:menuitem>
 			</p:tabMenu>

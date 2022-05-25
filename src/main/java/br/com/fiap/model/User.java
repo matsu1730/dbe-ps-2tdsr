@@ -17,6 +17,7 @@ public class User {
 	private String email;
 	private String password;
 	private LocalDate birthday;
+	private String imageProfile;
 
 	public Long getId() {
 		return id;
@@ -59,4 +60,17 @@ public class User {
 		this.name = name;
 	}
 
+	public String getImageProfile() {
+		return imageProfile;
+	}
+
+	public void setImageProfile(String imageProfile) {
+		this.imageProfile = imageProfile;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", birthday="
+				+ birthday + ", imageProfile=" + imageProfile + "]";
+	}
 }
