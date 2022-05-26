@@ -112,6 +112,10 @@ button.ui-button {
 	margin-right: .5rem;
 }
 
+.form-item-spacing {
+	margin-top: 5px;
+}
+
 @media screen and (max-width: 576px) {
 	.product .product-list-item {
 		-ms-flex-direction: column;

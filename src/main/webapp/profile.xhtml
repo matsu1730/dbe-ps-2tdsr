@@ -12,22 +12,29 @@
 			<p:autoUpdate />
 		</p:messages>
 		
-		<p:card style="width: 25em" >
+		<p:card style="width: 25em; margin: 1em auto" >
 			<f:facet name="header">
 				<img alt="user profile photo"
-					src="#{request.contextPath}#{userBean.loggedUser().imageProfile}" />
+					src="#{request.contextPath}#{userBean.loggedUser().imageProfile}" style="margin: 10px auto; width: 100px"/>
 			</f:facet>
 			<f:facet name="title">#{userBean.loggedUser().name}</f:facet>
-			<div>
-				<p:inputText id="name" type="text" value="#{userBean.loggedUser().name}" disabled="true">
+			<div class="ui-fluid">
+				<div class="p-field">
+					<p:inputText id="name" type="text" value="#{userBean.loggedUser().name}" disabled="true" class="form-item-spacing">
 					<f:ajax event="blur" render="msg" />
-				</p:inputText>
-				<p:inputText id="birthday" type="date" value="#{userBean.loggedUser().birthday}" disabled="true">
+					</p:inputText>
+				</div>
+				<div class="p-field">
+					<p:inputText id="birthday" type="date" value="#{userBean.loggedUser().birthday}" disabled="true" class="form-item-spacing">
 					<f:ajax event="blur" render="msg" />
-				</p:inputText>
-				<p:inputText id="email" type="text" value="#{userBean.loggedUser().email}" disabled="true">
+					</p:inputText>
+				</div>
+				<div class="p-field" style="margin-bottom: 5px;">
+					<p:inputText id="email" type="text" value="#{userBean.loggedUser().email}" disabled="true" class="form-item-spacing">
 					<f:ajax event="blur" render="msg" />
-				</p:inputText>
+					</p:inputText>
+				</div>
+				
 			</div>
 		</p:card>
 	</ui:define>
