@@ -3,8 +3,7 @@
   <persistence-unit name="progamer-persistence-unit" transaction-type="RESOURCE_LOCAL">
     <description>Forge Persistence Unit</description>
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <class>br.com.fiap.model.Setup</class>
-    <class>br.com.fiap.model.User</class>
+    <class>br.com.fiap.model.Visitante</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
     
@@ -12,7 +11,7 @@
       <property name="javax.persistence.jdbc.user" value="sa" />
       <property name="javax.persistence.jdbc.password" value="" />
     
-      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.hbm2ddl.auto" value="create"/>
       <property name="hibernate.show_sql" value="true"/>
       <property name="hibernate.format_sql" value="true"/>
       

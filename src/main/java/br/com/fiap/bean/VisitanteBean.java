@@ -12,44 +12,38 @@ import javax.servlet.ServletContext;
 
 import org.primefaces.model.file.UploadedFile;
 
-import br.com.fiap.dao.SetupDao;
-import br.com.fiap.model.Setup;
-import br.com.fiap.model.User;
+import br.com.fiap.dao.VisitanteDao;
+import br.com.fiap.model.Visitante;
 
 @Named
 @RequestScoped
-public class SetupBean {
+public class VisitanteBean {
 
-	private Setup setup = new Setup();
-	private List<Setup> list;
+	private Visitante visitante = new Visitante();
+	private List<Visitante> list;
 	private UploadedFile image;
 	
-	public SetupBean() {
+	public VisitanteBean() {
 		list = this.list();
 	}
 	
-	public String save() throws IOException{
+	public String save() throws IOException{		
 		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext();
+		
 		String path = servletContext.getRealPath("/"); 
 		
 		FileOutputStream out = new FileOutputStream(path + "\\images\\" + image.getFileName());
 		out.write(image.getContent());
 		out.close();
 		
-		setup.setImagePath("\\images\\" + image.getFileName());
+		visitante.setImagePath("\\images\\" + image.getFileName());
 		
-		User user = (User) FacesContext
-				.getCurrentInstance()
-				.getExternalContext()
-				.getSessionMap()
-				.get("user");
-		
-		new SetupDao().create(setup);
-		user.addSetup(setup);
+		new VisitanteDao().create(visitante);
 		
 		mostrarMensagem();
+
 		
-		return "setups?faces-redirect=true";
+		return "home?faces-redirect=true";
 	}
 
 	private void mostrarMensagem() {
@@ -61,37 +55,38 @@ public class SetupBean {
 		
 		FacesContext
 			.getCurrentInstance()
-			.addMessage(null, new FacesMessage("Setup cadastrado com sucesso"));
+			.addMessage(null, new FacesMessage("Visitante cadastrado com sucesso"));
 	}
 	
-	public List<Setup> list(){
-		return new SetupDao().listAll();
+	public List<Visitante> list(){
+		return new VisitanteDao().listAll();
 	}
 	
-	public String remove(Setup setup) {
-		new SetupDao().delete(setup);
+	public String remove(Visitante Visitante) {
+		new VisitanteDao().delete(Visitante);
 		
 		FacesContext
 			.getCurrentInstance()
-			.addMessage(null, new FacesMessage("Setup apagado com sucesso"));
+			.addMessage(null, new FacesMessage("Visitante apagado com sucesso"));
 		
-		return "setups?faces-redirect=true";
+		return "home?faces-redirect=true";
+
 	}
 	
-	public List<Setup> getList() {
+	public List<Visitante> getList() {
 		return list;
 	}
 
-	public void setList(List<Setup> list) {
+	public void setList(List<Visitante> list) {
 		this.list = list;
 	}
 
-	public Setup getSetup() {
-		return setup;
+	public Visitante getVisitante() {
+		return visitante;
 	}
 
-	public void setSetup(Setup setup) {
-		this.setup = setup;
+	public void setVisitante(Visitante Visitante) {
+		this.visitante = Visitante;
 	}
 
 	public UploadedFile getImage() {

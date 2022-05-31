@@ -7,35 +7,34 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
-import br.com.fiap.model.Setup;
+import br.com.fiap.model.Visitante;
 
-public class SetupDao {
+public class VisitanteDao {
 	
 	private EntityManagerFactory factory = Persistence.createEntityManagerFactory("progamer-persistence-unit");
 	private EntityManager manager = factory.createEntityManager();
 
-	public void create(Setup setup) {
+	public void create(Visitante visitante) {
 		
 		manager.getTransaction().begin();
-		manager.persist(setup);
+		manager.persist(visitante);
 		manager.getTransaction().commit();
 		
 		manager.clear();
 	}
 	
-	public List<Setup> listAll(){
-		TypedQuery<Setup> query = 
-				manager.createQuery("SELECT s FROM Setup s", Setup.class);
+	public List<Visitante> listAll(){
+		TypedQuery<Visitante> query = 
+				manager.createQuery("SELECT v FROM Visitante v", Visitante.class);
 		
 		return query.getResultList();
 	}
 
-	public void delete(Setup setup) {
+	public void delete(Visitante visitante) {
 		manager.getTransaction().begin();
-		setup = manager.merge(setup);
-		manager.remove(setup);
+		visitante = manager.merge(visitante);
+		manager.remove(visitante);
 		manager.getTransaction().commit();
-		
 	}
 
 }

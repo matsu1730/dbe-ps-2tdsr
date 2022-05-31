@@ -2,18 +2,13 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<url-mapping id="home">
-		<pattern value="/" />
-		<view-id value="setups.xhtml" />
+		<pattern value="/home" />
+		<view-id value="home.xhtml" />
 	</url-mapping>
 	
-	<url-mapping id="setups">
-		<pattern value="/setups" />
-		<view-id value="setups.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="new-setup">
-		<pattern value="/new-setup" />
-		<view-id value="setup_new.xhtml" />
+	<url-mapping id="register">
+		<pattern value="/register" />
+		<view-id value="register.xhtml" />
 	</url-mapping>	
 
 
