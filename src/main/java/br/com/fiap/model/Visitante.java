@@ -85,6 +85,23 @@ public class Visitante {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
+	
+	
+	public String getNumeroRg() {
+		return numeroRg;
+	}
+
+	public void setNumeroRg(String numeroRg) {
+		this.numeroRg = numeroRg;
+	}
+
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
 
 	@Override
 	public String toString() {

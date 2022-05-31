@@ -2,7 +2,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<url-mapping id="home">
-		<pattern value="/home" />
+		<pattern value="/" />
 		<view-id value="home.xhtml" />
 	</url-mapping>
 	
