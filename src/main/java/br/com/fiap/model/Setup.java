@@ -2,12 +2,12 @@ package br.com.fiap.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -22,8 +22,7 @@ public class Setup {
 	private BigDecimal price = new BigDecimal(2000);
 	private String imagePath;
 	
-	@ManyToOne
-	@JoinColumn(name="CD_USER")
+	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	public Long getId() {

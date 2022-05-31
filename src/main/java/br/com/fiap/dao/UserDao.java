@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
+
 import br.com.fiap.model.User;
 
 public class UserDao {
@@ -17,7 +18,10 @@ public class UserDao {
 	private User sessionUser = new User();
 
 	public void create(User user) {
-
+				
+		System.out.println(user);
+		
+		
 		manager.getTransaction().begin();
 		manager.persist(user);
 		manager.getTransaction().commit();
@@ -50,9 +54,10 @@ public class UserDao {
 	
 	public boolean exist(User user) {
 		try{
-			return findUser(user) == null ? false: true;
+			findUser(user);
+			return true;
 		}catch(Exception e) {
-			throw e;
+			return false;
 		}
 	}
 
