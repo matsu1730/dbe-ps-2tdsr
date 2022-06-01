@@ -12,7 +12,7 @@ body {
 }
 
 .product .product-description {
-	margin: 0 0 1rem 0;
+	margin: 0 5px 1rem 5px;
 }
 
 .product .product-category-icon {
@@ -28,8 +28,7 @@ body {
 .product .product-list-item {
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
+	justify-content: center;
 	padding: 1rem;
 }
 
@@ -46,6 +45,14 @@ body {
 .product .product-list-item .product-list-detail {
 	flex: 1 1 0;
 	-ms-flex: 1 1 0;
+}
+
+.product-list-detail {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+	flex-direction: row !important;
+	flex-wrap: wrap !important;
 }
 
 .product .product-list-item .ui-rating {

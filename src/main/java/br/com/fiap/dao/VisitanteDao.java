@@ -1,5 +1,6 @@
 package br.com.fiap.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,13 @@ public class VisitanteDao {
 	private EntityManager manager = factory.createEntityManager();
 
 	public void create(Visitante visitante) {
+		
+		LocalDate today = LocalDate.now();
+		System.out.print(today);
+		
+		visitante.setDataCadastro(today);
+		System.out.print(visitante.toString());
+		
 		
 		manager.getTransaction().begin();
 		manager.persist(visitante);

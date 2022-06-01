@@ -24,16 +24,12 @@
 						<div class="product-list-item">
 							<img src="#{request.contextPath}#{visitante.imagePath}" style="width: 200px" />
 							<div class="product-list-detail">
-								<div class="product-name">#{visitante.nome}</div>
-								<div class="product-description">#{visitante.dataNascimento}</div>
-								<div class="align-components">
-									<p:commandButton icon="pi pi-times" styleClass="rounded-button ui-button-danger ui-button-outlined" action="#{visitanteBean.remove(visitante)}" style="width: 20px; height: 20px; margin-top: 2px;" />								
-								</div>
-
-							</div>
-							<div class="product-list-action">
-								<p:commandButton type="button" value="Details"
-									icon="pi pi-search" />
+								<div class="product-name">Nome: #{visitante.nome}</div>
+								<div class="product-description">Data de nascimento: #{visitante.dataNascimento}</div>
+								<div class="product-description">CPF: #{visitante.cpf}</div>
+								<div class="product-description">RG: #{visitante.rg}</div>
+								<div class="product-description">Data de cadastro: 2022-05-03</div>
+								<p:commandButton type="button" value="Apagar" action="#{visitanteBean.remove(visitante)}" />
 							</div>
 						</div>
 					</p:dataViewListItem>
